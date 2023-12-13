@@ -1,0 +1,357 @@
+@import url("./colors.css");
+@import "../node_modules/gerillass/scss/gerillass";
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.875rem;
+}
+
+body {
+  background-color: --color-background;
+}
+
+// Layout Component
+.primary {
+  display: flex;
+  width: 100%;
+  max-height: 100dvh;
+  height: 100dvh;
+  overflow: hidden;
+
+  &-main {
+    flex-grow: 0;
+    width: 90%;
+    height: 100%;
+  }
+}
+
+// Header Component
+.header {
+  // Display Style
+  display: flex;
+  width: 100dvw;
+  overflow: none;
+  height: 4rem;
+
+  // Colors
+  background-color: var(--C800);
+  color: var(--C100);
+
+  flex: 1;
+
+  &-file {
+    height: 100%;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    display: flex;
+    flex-grow: 1;
+    gap: 0.4rem;
+    align-items: center;
+
+    &-data {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+
+      p {
+        color: var(--C500);
+        font-weight: 300;
+      }
+
+      h3 {
+        font-size: 0.9375rem;
+      }
+    }
+  }
+
+  &-save {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+.clear {
+  background-color: transparent;
+}
+
+.dynamic-button {
+  display: none;
+
+  @include breakpoint(min, medium) {
+    display: block;
+  }
+}
+
+// Sidebar Component
+.sidebar {
+  // Display Style
+  display: flex;
+  flex-direction: column;
+  min-width: 0px;
+  width: 0px;
+  overflow: hidden;
+  flex: 1;
+  flex-grow: 1;
+  display: none;
+  min-width: 15.625rem;
+
+  // Colors
+  background-color: var(--C900);
+
+  // Animation In-Out
+  transition: width 150ms ease-in-out;
+
+  &--visible {
+    display: flex;
+    width: 15.625rem;
+
+    @include breakpoint(min, medium) {
+      min-width: 24rem;
+    }
+  }
+
+  &-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.5rem;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--C100);
+
+    &-title {
+      padding: 0;
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--C100);
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+
+      @include breakpoint(min, medium) {
+        align-items: center;
+        flex-direction: row;
+      }
+    }
+
+    &-documents {
+      align-self: flex-start;
+      justify-self: flex-start;
+      flex-grow: 1;
+      padding: 1.69rem 0;
+      width: 100%;
+    }
+  }
+}
+
+// Controls
+.btn {
+  border: none;
+  padding: 1.54rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &--flat-header {
+    max-width: 4.5rem;
+    width: 4.5rem;
+    background-color: var(--C700);
+
+    color: var(--C100);
+  }
+}
+
+.pre-switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.switch--active {
+  color: var(--C100);
+}
+
+.switch--inactive {
+  color: var(--C700);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 4.4rem;
+  height: 1.5rem;
+
+  .slider.round {
+    border-radius: 34px;
+
+    &::before {
+      border-radius: 50%;
+    }
+  }
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .slider {
+      background-color: var(--C600);
+    }
+
+    &:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(38px);
+    }
+  }
+
+  span {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--C800);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 4px;
+      bottom: 2px;
+      background-color: white;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+  }
+}
+
+.fullscreen {
+  background-color: var(--C800);
+  width: 100dvw;
+  height: 100dvh;
+}
+
+.fullscreen-flex {
+  background-color: var(--C800);
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+input {
+  font-size: 0.875rem;
+  font-family: "Roboto", sans-serif;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: var(--C700);
+  color: var(--C100);
+
+  &:focus {
+    outline: none;
+    border: 1px solid var(--ORANGE);
+  }
+}
+
+button {
+  border: none;
+  background-color: var(--ORANGE);
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  color: var(--C100);
+  height: 2.5rem;
+  cursor: pointer;
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: var(--ORANGE-HOVER);
+  }
+}
+
+.full-height {
+  height: 100%;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.719);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  &-inner {
+    background-color: var(--color-background);
+    width: 100%;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include breakpoint(min, medium) {
+      max-width: 22rem;
+    }
+
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    p {
+      line-height: 1.5rem;
+      color: var(--color-text-dark);
+    }
+  }
+}
+
+.edit-title {
+  display: flex;
+  gap: 1rem;
+
+  form {
+    flex-direction: row;
+
+    input {
+      width: 16rem;
+    }
+  }
+}
+
+.editing {
+  padding: 0;
+  margin: 0;
+}

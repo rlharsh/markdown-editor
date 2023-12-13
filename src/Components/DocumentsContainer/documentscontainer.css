@@ -1,0 +1,70 @@
+.documents-container {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.documents-container h2 {
+  color: var(--C500);
+  font-weight: 500;
+}
+
+.document-listing {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.doc-tile {
+  display: flex;
+  gap: 1.4rem;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 250ms ease;
+}
+.doc-tile:hover {
+  background-color: var(--C1000);
+}
+.doc-tile__data {
+  display: flex;
+  gap: 0.2rem;
+  flex-direction: column;
+}
+
+.date {
+  font-size: 0.8125rem;
+  color: var(--C500);
+}
+
+.file-name {
+  font-size: 0.94rem;
+  color: var(--C100);
+}
+
+.avatar-block {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.avatar-block button {
+  width: 100%;
+}
+.avatar-block__image {
+  width: 4rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  background-color: var(--C500);
+}
+.avatar-block__name {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.2rem;
+}
+.avatar-block p {
+  font-weight: 500;
+  font-size: 1rem;
+}

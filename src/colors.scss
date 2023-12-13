@@ -1,0 +1,53 @@
+$C100: #fff;
+$C200: #f5f5f5;
+$C300: #e4e4e4;
+$C400: #c1c4cb;
+$C500: #7c8187;
+$C600: #5a6069;
+$C700: #35393f;
+$C800: #2b2d31;
+$C900: #1d1f22;
+$C1000: #151619;
+$orange: #e46643;
+$orange-hover: #f39765;
+
+:root {
+  --C100: #{$C100};
+  --C200: #{$C200};
+  --C300: #{$C300};
+  --C400: #{$C400};
+  --C500: #{$C500};
+  --C600: #{$C600};
+  --C700: #{$C700};
+  --C800: #{$C800};
+  --C900: #{$C900};
+  --C1000: #{$C1000};
+  --ORANGE: #{$orange};
+  --ORANGE-HOVER: #{$orange-hover};
+}
+
+:root[data-theme="light"] {
+  --color-text: #{$C1000};
+  --color-text-dark: #{$C700};
+  --color-background: #{$C100};
+  --color-background-light: #{$C200};
+  --color-mid: #{$C200};
+  --color-light: #{$C100};
+  --color-divider: #{$C300};
+}
+
+:root[data-theme="dark"] {
+  --color-text: #{$C100};
+  --color-text-dark: #{$C400};
+  --color-primary: #{$C100};
+  --color-background: #{$C1000};
+  --color-background-light: #{$C800};
+  --color-mid: #{$C900};
+  --color-light: #{$C1000};
+  --color-divider: #{$C600};
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+}
