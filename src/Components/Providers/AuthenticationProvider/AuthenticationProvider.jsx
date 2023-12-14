@@ -1,6 +1,6 @@
 import { useEffect, useState, createContext } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../../assets/js/firebase.js"; // Adjust the import path
+import { auth } from "../../../assets/js/firebase.js";
 
 export const AuthenticationContext = createContext();
 
@@ -18,7 +18,7 @@ const AuthenticationProvider = ({ children }) => {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>; // Or any other loading indicator
+    return <div>Loading...</div>;
   }
 
   onAuthStateChanged(auth, (user) => {

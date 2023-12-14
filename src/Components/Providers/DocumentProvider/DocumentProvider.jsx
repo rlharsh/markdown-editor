@@ -14,6 +14,7 @@ const DocumentProvider = ({ children }) => {
   const docsRef = collection(db, "documents");
   const [pendingDocument, setPendingDocument] = useState(null);
   const q = query(docsRef, where("uid", "==", auth.currentUser.uid));
+  const [totalWords, setTotalWords] = useState(0);
 
   onSnapshot(q, (querySnapshot) => {
     const newDocuments = querySnapshot.docs.map((doc) => ({
@@ -86,7 +87,7 @@ const DocumentProvider = ({ children }) => {
   };
 
   return (
-    <DocumentContext.Provider value={{ documents, currentDocument, setCurrentDocument, setUnsavedChanges, unsavedChanges, showSaveModal, saveDocumentFile, createNewDocument, deleteCurrentDocument, updateTitle }}>
+    <DocumentContext.Provider value={{ documents, currentDocument, setCurrentDocument, setUnsavedChanges, unsavedChanges, showSaveModal, saveDocumentFile, createNewDocument, deleteCurrentDocument, updateTitle, setTotalWords, totalWords }}>
       {deleteModalShowing && (
         <div className="modal">
           <div className="modal-inner">

@@ -17,7 +17,7 @@ const Editor = () => {
   const [previewShowing, setPreviewShowing] = useState(false);
 
   const togglePreview = () => setPreviewShowing(!previewShowing);
-  const { currentDocument, setUnsavedChanges, unsavedChanges, setUpdatedBody } = useContext(DocumentContext);
+  const { setTotalWords, currentDocument, setUnsavedChanges, unsavedChanges, setUpdatedBody } = useContext(DocumentContext);
 
   useEffect(() => {
     if (currentDocument) {
@@ -28,6 +28,9 @@ const Editor = () => {
   const updateText = (value) => {
     if (currentDocument) {
       setValue(value);
+      setUnsavedChanges(true);
+      const regEx = /\s+/gi;
+      setTotalWords(document.getElementById("editor").value.trim().replace(regEx, " ").split(" ").length);
     }
   };
 
