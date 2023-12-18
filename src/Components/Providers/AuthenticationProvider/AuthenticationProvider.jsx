@@ -27,7 +27,11 @@ const AuthenticationProvider = ({ children }) => {
     }
   });
 
-  return <AuthenticationContext.Provider value={{ currentUser }}>{children}</AuthenticationContext.Provider>;
+  return (
+    <AuthenticationContext.Provider value={{ currentUser }}>
+      {children}
+    </AuthenticationContext.Provider>
+  );
 };
 
 export default AuthenticationProvider;

@@ -6,7 +6,11 @@ import "./login.css";
 
 /* Import the Remix icons. */
 import IconGoogle from "remixicon-react/GoogleFillIcon";
-import { authSignInWithGoogle, auth, authSignInWithEmail } from "../assets/js/firebase";
+import {
+  authSignInWithGoogle,
+  auth,
+  authSignInWithEmail,
+} from "../assets/js/firebase";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -33,8 +37,18 @@ const Login = () => {
       <div className="login-container">
         <h1>Login</h1>
         <form onSubmit={handleFormSubmit}>
-          <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} />
-          <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)} />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <button>Sign in</button>
         </form>
         <div className="other-login">

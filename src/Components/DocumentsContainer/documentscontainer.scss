@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  justify-content: space-between;
 
   h2 {
     color: var(--C500);
@@ -14,6 +15,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  flex: 1;
 }
 
 .doc-tile {

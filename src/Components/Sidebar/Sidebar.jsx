@@ -9,6 +9,7 @@ import IconMoon from "remixicon-react/MoonClearLineIcon";
 import IconSun from "remixicon-react/SunLineIcon";
 import IconLeave from "remixicon-react/LogoutBoxLineIcon";
 
+/* Import the default user icon. */
 import IconAvatar from "../../assets/images/user-avatar.svg";
 
 /* Import the Theme Context provider */
@@ -29,7 +30,12 @@ const Sidebar = () => {
         <div className="sidebar-inner-title">
           <h2>{APP_ID}</h2>
           <div className="sidebar-inner-theme-switcher">
-            <Switch PreIcon={IconMoon} PostIcon={IconSun} Checked={!isDark} Callback={toggleTheme} />
+            <Switch
+              PreIcon={IconMoon}
+              PostIcon={IconSun}
+              Checked={!isDark}
+              Callback={toggleTheme}
+            />
           </div>
         </div>
         {/* Display the documents container. */}
@@ -37,7 +43,11 @@ const Sidebar = () => {
           <DocumentsContainer />
         </div>
         <div className="avatar-block">
-          <img className="avatar-block__image" src={auth.currentUser.photoURL || IconAvatar} alt={`${auth?.currentUser?.displayName || "USER Avatar Image"}`} />
+          <img
+            className="avatar-block__image"
+            src={auth.currentUser.photoURL || IconAvatar}
+            alt={`${auth?.currentUser?.displayName || "USER Avatar Image"}`}
+          />
           <div className="avatar-block__name">
             <p>{auth.currentUser.displayName.toUpperCase() || "USER"}</p>
             <button onClick={signOutOfApplication}>

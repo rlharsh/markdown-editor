@@ -132,6 +132,7 @@ body {
   flex-grow: 1;
   padding: 1.69rem 0;
   width: 100%;
+  overflow-y: auto;
 }
 
 .btn {
@@ -323,4 +324,14 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.btn-clear {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+.btn-clear:hover {
+  color: var(--ORANGE);
+  background-color: transparent;
 }

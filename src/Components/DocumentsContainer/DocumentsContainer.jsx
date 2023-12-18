@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 
 import "./documentscontainer.css";
 import { DocumentContext } from "../Providers/DocumentProvider/DocumentProvider";
@@ -9,21 +9,22 @@ import IconFile from "remixicon-react/FileFillIcon";
 import { getFirestoreDate } from "../../assets/js/firebase.js";
 
 const DocumentsContainer = () => {
-  const { documents, setCurrentDocument, showSaveModal, unsavedChanges, createNewDocument } = useContext(DocumentContext);
+  /* Import the variables from our Document Context */
+  const {
+    documents,
+    setCurrentDocument,
+    showSaveModal,
+    unsavedChanges,
+    createNewDocument,
+  } = useContext(DocumentContext);
 
-  useEffect(() => {
-    if (documents) {
-    }
-  }, [documents]);
-
+  /* Verify that no changes have been made,
+   * if they have, prompt to save, otherwise open. */
   const openDocument = (document) => {
-    if (unsavedChanges) {
-      showSaveModal(document);
-    } else {
-      setCurrentDocument(document);
-    }
+    unsavedChanges ? showSaveModal(document) : setCurrentDocument(document);
   };
 
+  /* Render the list of documents. */
   const renderDocuments = () => {
     if (documents) {
       return documents.map((doc, index) => (

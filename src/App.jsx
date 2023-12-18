@@ -1,4 +1,6 @@
-import ThemeProvider, { ThemeContext } from "./Components/Providers/ThemeProvider/ThemeProvider";
+import ThemeProvider, {
+  ThemeContext,
+} from "./Components/Providers/ThemeProvider/ThemeProvider";
 
 import "./assets/js/firebase.js";
 
@@ -8,7 +10,7 @@ import PrimaryLayout from "./Components/Layouts/PrimaryLayout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./Pages/Home.jsx";
-import AuthenticationProvider, { AuthenticationContext } from "./Components/Providers/AuthenticationProvider/AuthenticationProvider.jsx";
+import AuthenticationProvider from "./Components/Providers/AuthenticationProvider/AuthenticationProvider.jsx";
 import ProtectedRoute from "./Routes/ProtectedRoute.jsx";
 import Login from "./Pages/Login.jsx";
 import Editor from "./Pages/Editor.jsx";
@@ -28,7 +30,8 @@ function App() {
                 </ProtectedRoute>
               }
             >
-              <Route index element={<Editor />} /> {/* Define Editor as a child route */}
+              <Route index element={<Editor />} />{" "}
+              {/* Define Editor as a child route */}
             </Route>
             <Route path="/login" element={<Login />} />
           </Routes>

@@ -1,5 +1,59 @@
+@import "../../node_modules/gerillass/scss/gerillass";
+
 .home-wrapper {
   background-color: var(--C800);
   width: 100dvw;
   height: 100dvh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__left {
+    p {
+      font-size: 1.5rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--color-background);
+
+    button {
+      width: fit-content;
+    }
+
+    width: 100%;
+
+    @include breakpoint(min, medium) {
+      width: 50%;
+    }
+  }
+
+  &__right {
+    width: 50%;
+    height: 100%;
+    background-image: url("../assets/images/SCREEN.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: none;
+
+    @include breakpoint(min, medium) {
+      display: block;
+    }
+  }
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
 }
